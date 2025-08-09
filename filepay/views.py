@@ -107,9 +107,6 @@ def initiate_payment(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def upload_file(request):
-    """
-    Upload file after payment
-    """
     file_obj = request.FILES.get('file')
     if not file_obj:
         return Response({"error": "No file uploaded"}, status=status.HTTP_400_BAD_REQUEST)
@@ -122,8 +119,6 @@ def upload_file(request):
         status="processing"
     )
 
-    # Trigger Celery task
-    process_file_word_count.delay(upload_instance.id)
 
     ActivityLog.objects.create(
         user=request.user,
