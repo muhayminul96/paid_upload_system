@@ -1,8 +1,9 @@
 import os
 import requests, json
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -150,3 +151,20 @@ def list_activity(request):
 def list_transactions(request):
     transactions = PaymentTransaction.objects.filter(user=request.user)
     return Response(PaymentTransactionSerializer(transactions, many=True).data)
+
+@login_required
+def dashboard(request):
+    has_paid = PaymentTransaction.objects.filter(
+        user=request.user, status='success'
+    ).exists()
+
+    files = FileUpload.objects.filter(user=request.user)
+    activities = ActivityLog.objects.filter(user=request.user)
+    payments = PaymentTransaction.objects.filter(user=request.user)
+
+    return render(request, 'paid_uploads/dashboard.html', {
+        'has_paid': has_paid,
+        'files': files,
+        'activities': activities,
+        'payments': payments
+    })
