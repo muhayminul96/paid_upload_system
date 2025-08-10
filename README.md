@@ -88,5 +88,14 @@ python manage.py runserver
 
 ```
 
+| Method | Endpoint                 | Description                       |
+| ------ | ------------------------ | --------------------------------- |
+| POST   | `api/token/`            | JWT login                         |
+| POST   | `/api/initiate-payment/` | Initiate aamarPay payment         |
+| POST   | `/api/upload/`           | Upload file (after payment)       |
+| GET    | `/api/files/`            | List uploaded files               |
+| GET    | `/api/activity/`         | List activity logs                |
+| GET    | `/api/transactions/`     | List payment history              |
+
 
 
