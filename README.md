@@ -65,5 +65,28 @@ python manage.py migrate
 ```bash
 python manage.py createsuperuser
 ```
+## Running the Project
+
+### Start Redis server
+
+```bash
+redis-server
+
+```
+
+### Start Celery worker
+
+```bash
+celery -A paid_upload_system worker -l info
+
+```
+
+### Start Django development server
+
+```bash
+python manage.py runserver
+
+```
+
 
 
