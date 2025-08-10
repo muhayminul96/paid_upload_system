@@ -34,7 +34,7 @@ Includes REST API endpoints, Bootstrap-based dashboard, activity logging, and Dj
 
 ### Clone the repository
 ```bash
-git clone https://github.com/yourusername/aamarpay-django-task.git
+git clone https://github.com/muhayminul96/paid_upload_system.git
 cd aamarpay-django-task
 ```
 
