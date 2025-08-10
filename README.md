@@ -37,3 +37,12 @@ Includes REST API endpoints, Bootstrap-based dashboard, activity logging, and Dj
 git clone https://github.com/yourusername/aamarpay-django-task.git
 cd aamarpay-django-task
 ```
+
+### Create and activate a virtual environment
+
+```bash
+python -m venv venv
+source venv/bin/activate
+
+```
+
