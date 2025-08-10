@@ -10,7 +10,7 @@ from rest_framework import status
 from .models import FileUpload, PaymentTransaction, ActivityLog
 from .serializers import FileUploadSerializer, PaymentTransactionSerializer, ActivityLogSerializer
 from django.utils.crypto import get_random_string
-
+from .tasks import process_file_word_count
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def initiate_payment(request):
@@ -119,6 +119,8 @@ def upload_file(request):
         status="processing"
     )
 
+    # Trigger Celery task
+    process_file_word_count.delay(upload_instance.id)
 
     ActivityLog.objects.create(
         user=request.user,
