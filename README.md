@@ -6,7 +6,7 @@ Includes REST API endpoints, Bootstrap-based dashboard, activity logging, and Dj
 
 ---
 
-## 🚀 Features
+## Features
 - **JWT Authentication** (Login/Registration)
 - **aamarPay Sandbox Payment Integration**
 - **File Upload** (only after successful payment)
@@ -18,7 +18,7 @@ Includes REST API endpoints, Bootstrap-based dashboard, activity logging, and Dj
 
 ---
 
-## 📦 Requirements
+## Requirements
 - Python 3.10+
 - Django 4+
 - Django REST Framework
@@ -30,9 +30,9 @@ Includes REST API endpoints, Bootstrap-based dashboard, activity logging, and Dj
 
 ---
 
-## 🔧 Installation & Setup
+## Installation & Setup
 
-### 1️⃣ Clone the repository
+### Clone the repository
 ```bash
 git clone https://github.com/yourusername/aamarpay-django-task.git
 cd aamarpay-django-task
@@ -43,6 +43,11 @@ cd aamarpay-django-task
 ```bash
 python -m venv venv
 source venv/bin/activate
-
 ```
 
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+
+```
