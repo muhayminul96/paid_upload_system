@@ -9,6 +9,10 @@
 
 <div class="container">
     <h1 class="mb-4">Welcome, {{ request.user.username }}</h1>
+   <form action="{% url 'logout' %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
 
     {% if not has_paid %}
         <div class="alert alert-warning">
